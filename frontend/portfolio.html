@@ -10,9 +10,9 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
-<body style="padding-top: 70px;">
+<body>
   <!--https://www.youtube.com/watch?v=qep7IWhqdoo-->
-  <nav class="navbar navbar-inverse navbar-fixed-top bg-primary">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <!--Brand and Toggle get grouped for better mobile display-->
       <div class="navbar-header">
@@ -29,8 +29,8 @@
       <div class="collapse navbar-collapse" id="navbarDiv">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-          <li><a href="#aboutMeDiv"><span class="glyphicon glyphicon-info-sign"> About</span></a></li>
-          <li class="dropdown">
+          <li><a href="#aboutMeDiv"><span class="glyphicon glyphicon-user"> About</span></a></li>
+          <li class="dropdown" id="dropdownListItem">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                 <span class="glyphicon glyphicon-tasks"> Projects</span>
                 <ul class="dropdown-menu">
@@ -39,7 +39,9 @@
         </ul>
         </a>
         </li>
+          <li><a href="https://goo.gl/0kTM7k" target="_blank"> <span class="glyphicon glyphicon-list-alt"> Resume</span></a></li>
         <li><a href="#contactMeDiv"><span class="glyphicon glyphicon-envelope"> Contact</span></a></li>
+          
         </ul>
       </div>
       <!--navbar-collapse-->
@@ -48,41 +50,42 @@
   </nav>
   <div class="container">
    <!-- <div class="jumbotron" id="jumbotronDiv">-->
-      <div class="row">
-        <div id="myPicDiv" class="col-xs-12 col-sm-4">
-          <img class="img-responsive img-rounded" src="https://pbs.twimg.com/profile_images/751902240479162368/W7AoNXdI.jpg" alt="Vivek's picture" height="200" width="200">
+    <div class="row">
+        <div id="myPicDiv" class="col-xs-12 col-sm-4 col-sm-offset-2">
+          <img class="img-responsive img-rounded" src="img/IMG_20151104_130317707%20Cropped.jpg" alt="Vivek's picture" height="200" width="200">
         </div>
         <div id="myNameDiv" class="col-xs-12 col-sm-3">
-          <h1 class="text-center">Vivek Vikram Singh</h1>
-          <h4 class="text-center">Procrastinator, Reddit and Quora addict. </h4>
+          <h1 class="text-center" style="padding-top:20px">Vivek Vikram Singh</h1>
         </div>
       </div>
     <!--</div>
     Jumbotron-->
     <div id="aboutMeDiv" class="row">
       <div class="col-xs-12 col-sm-12">
-        <h3 class="text-left">About me:</h3>
+        <h2 class="text-left">About me</h2>
         <ul>
-          <li>This is Vivek, from Bengaluru, widely knowan as Silicon Valley of India. I am currently working at Dell-EMC India as Software Engineer.</li>
-          <li>I have Bachelors and Masters in Computer Science and interned in Dell-EMC before joining it as full time employee.</li>
-          <li>Currently I am working on Java and related technologies and taking FCC to widen my skill set.</li>
-          <li>I am also a contributor at <a href="http://www.techtud.com/users/vivek14" target="_blank">Techtud</a>.</li>
+          <li>This is Vivek from Bengaluru, India. I am currently working at <a href="https://www.linkedin.com/company/dellemc" target="_blank">Dell-EMC</a> India as Software Engineer.</li>
+          <li>I have Masters in Computer Science from <a href="https://en.wikipedia.org/wiki/Birla_Institute_of_Technology_and_Science" target="_blank">BITS Pilani, Pilani campus</a> and interned in Dell-EMC before joining it as full time employee.</li>
+          <li>Currently I am working on Java and related technologies and I am taking FreeCodeCamp to widen my skills set.</li>
+          <li>I am also one of the top contributors at <a href="http://www.techtud.com/users/vivek14" target="_blank">Techtud</a>.</li>
+          <li>My skills set, apart from HTML, CSS and Bootstrap, includes: Python, Elasticsearch, Logstash, Kibana and Java.
+          </li>
         </ul>
       </div>
     </div>
-    <div id="projectsDiv" class="row">
+    <div id="projectsDiv" class="row" height="200px">
       <div class="col-xs-12 col-sm-12" style="padding-left:20px">
-        <h3 class="text-left">My Projects</h3>
+        <h2 class="text-left">My Projects</h2>
         <ul class="nav nav-tabs" role="tablist">
-          <li class="active" style="padding-right:180px;"><a data-toggle="tab" href="#tributeProject" class="text-center">Tribute Project</a></li>
-          <li style="padding-right:180px;"><a data-toggle="tab" href="#confusionProject">Confusion Project</a></li>
-          <li style="padding-right:150px;"><a data-toggle="tab" href="#project3">Project 3</a></li>
+          <li class="active" style="padding-right:156px;"><a data-toggle="tab" href="#tributeProject">Tribute Project</a></li>
+          <li style="padding-right:156px;"><a data-toggle="tab" href="#confusionProject">Confusion Project</a></li>
+          <li style="padding-right:156px;"><a data-toggle="tab" href="#project3">Project 3</a></li>
           <li><a data-toggle="tab" href="#project4">Project 4</a></li>
         </ul>
         <div id="tabContentDiv" class="tab-content" >
           <div id="tributeProject" class="tab-pane fade in active">
             <div class="col-xs-12 col-sm-3">
-              <a href="https://codepen.io/vvs/full/vmjmOz/" target="_blank"><img src="img/sonam-wangchuk-2.jpg" class="img-thumbnail" width="220" height="150">
+              <a href="https://codepen.io/vvs/full/vmjmOz/" target="_blank"><img src="img/sonam-wangchuk-2.jpg" class="img-circle" width="220" height="135">
               </a>
             </div>
             <div class="col-xs-12 col-sm-9">
@@ -98,8 +101,20 @@
             </div>
           </div>
           <div id="confusionProject" class="tab-pane fade">
-            <p>This is the website of make believe restaurent called Confusion. This project is an assignment of Coursera specilaization on Full Stack Web Development. The technologies used to build this project are: HTML, CSS, Bootstrap, JavaScript and AngularJS.</p>
-            <p>Confusion restaurent on <a href="https://github.com/vvs14/full-stack-JS-hkust" target="_blank">Github.</a></p>
+            <div class="col-xs-12 col-sm-3">
+              <a href="https://github.com/vvs14/full-stack-JS-hkust" target="_blank"><img src="img/logo.png" class="img-circle" width="220" height="135"></a>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+              <p>This is the website of make believe restaurent called Confusion. This project is an assignment of Coursera specilaization on Full Stack Web Development.</p>
+              <span>Skills used:</span>
+                <ul>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Bootstrap</li>
+                  <li>AngularJS.</li>
+              </ul>
+            </div>
+            
           </div>
           <div id="project3" class="tab-pane fade">
             <p>Project 3 Coming soon.</p>
@@ -112,9 +127,10 @@
     </div>
     <div id="contactMeDiv" class="row">
       <div class="col-xs-12 col-sm-6">
-        <h3 class="text-left">Lets connect.</h3>
+        <h2 class="text-left">Lets connect</h2>
+     
         <div class="nav navbar-nav">
-          <p class="text-left">Catch me on my
+          <p class="text-center" style="padding-top:20px;">Catch me on my
             <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/vvs1489" target="_blank"><i class="fa fa-facebook fa-2x"></i>
             </a>
             <a class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/in/vvs14/" target="_blank"><i class="fa fa-linkedin fa-2x"></i>
@@ -122,13 +138,12 @@
             <a class="btn btn-social-icon btn-github" href="https://github.com/vvs14" target="_blank"><i class="fa fa-github fa-2x"></i>
             </a>
           </p>
-
         </div>
-      </div>
+        </div>
     </div>
-      <footer class="text-center">
+    <footer class="text-center">
     <hr>
-    <p>Coded, while pulling hair out, by <a href="https://www.freecodecamp.com/vvs14" class="link-text">Vivek</a></p>
+    <p>Coded, while pulling hair out, by <a href="https://www.freecodecamp.com/vvs14" class="link-text" target="_blank">Vivek</a></p>
   </footer>
   </div>
   <!--container-->

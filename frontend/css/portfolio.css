@@ -1,4 +1,42 @@
 .container {
-  padding-left: 110px;
-  padding-right: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+body{
+  padding-top: 70px;
+  color: #fff;
+  font-family: monospace;
+  font-size: 15px;
+  background-color: #5c5c5c;
+}
+
+h1{
+  font-family: cursive;
+}
+
+h2{
+  font-family: cursive;
+  color: #f4a460;
+}
+ a{
+  color:#c5eff7;
+}
+
+.navbar-default {
+  /* background-color:#c5eff7;*/
+  color: #fff;
+  background-color: #f4a460;
+}
+/*
+.nav-tabs{
+  background-color: #f4a460;
+}
+*/
+.row{
+  padding-top: 30px;
+}
+
+.tab-pane{
+  height: 170px;
 }
