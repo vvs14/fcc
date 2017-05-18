@@ -40,3 +40,8 @@ h2{
 .tab-pane{
   height: 170px;
 }
+
+.labelAlign{
+  padding-left: 8px;
+}
+
