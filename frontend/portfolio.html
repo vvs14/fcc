@@ -8,6 +8,7 @@
   <!--JS Files in script. jQuery, bootstrap.js in same order-->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="scripts/portfolioApp.js"></script>
 </head>
 
 <body>
@@ -29,16 +30,17 @@
       <div class="collapse navbar-collapse" id="navbarDiv">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-home"><span class="labelAlign">Home</span></span></a></li>
-          <li><a href="#aboutMeDiv"><span class="glyphicon glyphicon-user"><span class="labelAlign">About</span></span></a></li>
+          <li><a href="#aboutMeDiv"><span class="glyphicon glyphicon-user"><span class="labelAlign">About</span></span></a>
+          </li>
           <li class="dropdown" id="dropdownListItem">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="labelAlign">Projects<span class="caret"></span></span></span>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="labelAlign">Projects<span class="caret"></span></span>
                 <ul class="dropdown-menu">
-                  <li><a href="#tributeProject">Tribute</a></li>
-          <li><a href="#confusionProject">ConFusion Restaurent</a></li>
-        </ul>
-        </a>
-        </li>
-        <li><a href="https://goo.gl/0kTM7k" target="_blank"> <span class="glyphicon glyphicon-list-alt"><span class="labelAlign">Resume</span></span></a></li>
+                  <li><a id="dropdownTributeAnchor" href="#tributeProject">-Tribute</a></li>
+                  <li><a id="dropdownConfusionAnchor" href="#confusionProject">-ConFusion Restaurent</a></li>
+                </ul>
+            </a>
+          </li>
+        <!--<li><a href="https://goo.gl/0kTM7k" target="_blank"> <span class="glyphicon glyphicon-list-alt"><span class="labelAlign">Resume</span></span></a></li>-->
         <li><a href="#contactMeDiv"><span class="glyphicon glyphicon-envelope"><span class="labelAlign">Contact</span></span></a></li>
 
         </ul>
@@ -48,17 +50,15 @@
     <!-- navbar container-->
   </nav>
   <div class="container">
-    <!-- <div class="jumbotron" id="jumbotronDiv">-->
-    <div class="row">
+    <div id="nameMailDiv" class="row">
       <div id="myPicDiv" class="col-xs-12 col-sm-4 col-sm-offset-2">
         <img class="img-responsive img-rounded" src="img/IMG_20151104_130317707%20Cropped.jpg" alt="Vivek's picture" height="200" width="200">
       </div>
       <div id="myNameDiv" class="col-xs-12 col-sm-3">
         <h1 class="text-center" style="padding-top:20px">Vivek Vikram Singh</h1>
+        <h4 class="text-center" style="padding-top:15px">vivekvsingh14[at]gmail.com</h4>
       </div>
     </div>
-    <!--</div>
-    Jumbotron-->
     <div id="aboutMeDiv" class="row">
       <div class="col-xs-12 col-sm-12">
         <h2 class="text-left">About me</h2>
@@ -76,8 +76,8 @@
       <div class="col-xs-12 col-sm-12" style="padding-left:20px">
         <h2 class="text-left">My Projects</h2>
         <ul class="nav nav-tabs" role="tablist">
-          <li class="active" style="padding-right:156px;"><a data-toggle="tab" href="#tributeProject">Tribute Project</a></li>
-          <li style="padding-right:156px;"><a data-toggle="tab" href="#confusionProject">Confusion Project</a></li>
+          <li id="tributeTabListItem" class="active" style="padding-right:156px;"><a data-toggle="tab" href="#tributeProject">Tribute Project</a></li>
+          <li id="confusionTabListItem" style="padding-right:156px;"><a data-toggle="tab" href="#confusionProject">Confusion Project</a></li>
           <li style="padding-right:156px;"><a data-toggle="tab" href="#project3">Project 3</a></li>
           <li><a data-toggle="tab" href="#project4">Project 4</a></li>
         </ul>
