@@ -26,18 +26,35 @@ a {
     color: #fff;
     background-color: #f4a460;
 }
-/*
-.dropdown-toggle:active .open .dropdown-toggle{
-  color: #fff !important; 
-    background-color: #f4a460 !important; 
-}*/
 
+.nav.navbar-nav.navbar-right li a {
+    color: #fff;
+}
+/* To change background of dropdown when open*/
+.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu  {
+    background-color: #f4a460;
+    color:#fff;
+  }
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    background-color: #f4a460;
+    color:#fff;
+    display: block;
+}
+
+/* Change color of dropdown links on hover*/
+.dropdown-content>li>a:hover {
+  color: #000 !important; 
+}
+ 
 .row {
     padding-top: 30px;
     padding-bottom: 15px;
 }
 .tab-pane {
-    height: 190px;
+    height: 230px;
     padding-top: 20px;
 }
 .labelAlign {
