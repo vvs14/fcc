@@ -1,10 +1,12 @@
 $(document).ready(function () {
   
-  $("#dropdownTributeAnchor, #dropdownConfusionAnchor").click(function(){
+  $("#dropdownTributeAnchor, #homeAnchor, #brandAnchor, #dropdownConfusionAnchor").click(function(){
     var anchorClicked =  $(this).attr('id');
     $("div div div ul li").removeClass("active");
     $(".tab-pane").removeClass("active");
-    if(anchorClicked==="dropdownTributeAnchor"){
+    if(anchorClicked==="dropdownTributeAnchor" ||
+       anchorClicked=="homeAnchor"||
+       anchorClicked=="brandAnchor"){
       $("#tributeTabListItem").addClass("active");
       $("#tributeProject").addClass("active in");
     }
@@ -12,14 +14,6 @@ $(document).ready(function () {
       $("#confusionTabListItem").addClass("active");
       $("#confusionProject").addClass("active in");
     }
-  });
-
-  //When clicked on home or brand
-  $("#homeAnchor,#brandAnchor").click(function(){
-    $("div div div ul li").removeClass("active");
-    $(".tab-pane").removeClass("active");
-    $("#tributeTabListItem").addClass("active");
-    $("#tributeProject").addClass("active in");
   });
   
 });
