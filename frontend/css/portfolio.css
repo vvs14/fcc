@@ -1,0 +1,62 @@
+.container {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+body {
+    padding-top: 70px;
+    color: #fff;
+    font-family: monospace;
+    font-size: 15px;
+    /*background-color: #5c5c5c;*/
+    background-color:  #201E1D;
+}
+h1 {
+    font-family: cursive;
+}
+h2 {
+    font-family: cursive;
+    color: #f4a460;
+}
+a {
+    color: #c5eff7;
+}
+.navbar-default {
+    /* background-color:#c5eff7;*/
+    
+    color: #fff;
+    background-color: #f4a460;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: #fff;
+}
+/* To change background of dropdown when open*/
+.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu  {
+    background-color: #f4a460;
+    color:#fff;
+  }
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    background-color: #f4a460;
+    color:#fff;
+    display: block;
+}
+
+/* Change color of dropdown links on hover*/
+.dropdown-content>li>a:hover {
+  color: #000 !important; 
+}
+ 
+.row {
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+.tab-pane {
+    height: 230px;
+    padding-top: 20px;
+}
+.labelAlign {
+    padding-left: 5px;
+}
