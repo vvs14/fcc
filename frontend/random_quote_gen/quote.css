@@ -1,5 +1,5 @@
 .custom-body {
-  background-image: url("../img/Trees_1920x1234.png");
+  background-image: url("../img/PaintSwatches_1400x900.jpg");
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,23 +9,42 @@
 .centered {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 45%;
   transform: translate(-50%, -50%);
-  /*
-  This doesn't work
-  margin-left: -25%;
-  margin-top: -25%;
-  */
-  /*
-  width: 50%;
-  height: 60%;*/
-  background: #43AFD0;
-  color: #000;
-  font-style: oblique;
+  background: #2B303A;
+  color: #fff;
+  font-family: cursive;
   font-size: 2.5vmax;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 21px 10px 39px 0px rgba(0,0,0,0.75);
   display: inline-block; /*For the content to be inside of Div*/
   border-radius: 25px;
 }
+
+.author {
+  font-family: serif;
+}
+
+#newQuoteBtn, #twitterBtn, #fbBtn {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  background-color:#B5B3B4;
+  color: #000;
+}
+
+/*
+Few other colors for background of box
+#930300
+#B0990A
+#0390AD
+#333640
+#2B303A
+
+For buttons
+#B5B3B4 background
+
+
+
+
+
