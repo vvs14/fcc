@@ -1,9 +1,6 @@
 .custom-body {
-  background-image: url("../img/PaintSwatches_1400x900.jpg");
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.75;
+  background-color: chocolate;
+  transition: background-color 1s ease;
 }
 
 .centered {
@@ -11,26 +8,29 @@
   left: 50%;
   top: 45%;
   transform: translate(-50%, -50%);
-  background: #2B303A;
+  background: chocolate;
   color: #fff;
   font-family: cursive;
   font-size: 2.5vmax;
   padding: 15px;
   text-align: center;
-  box-shadow: 21px 10px 39px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 3px 53px 18px rgba(0,0,0,0.75);
   display: inline-block; /*For the content to be inside of Div*/
   border-radius: 25px;
+  transition: background-color 1.5s ease;
+  opacity: 1 !important;
 }
 
 .author {
   font-family: serif;
 }
 
-#newQuoteBtn, #twitterBtn, #fbBtn {
+#getNewQuoteBtn, #twitterBtn, #fbBtn {
   margin-top: 15px;
   margin-bottom: 10px;
-  background-color:#B5B3B4;
+  /*background-color:#B5B3B4;*/
   color: #000;
+  background-color: #fff;
 }
 
 /*

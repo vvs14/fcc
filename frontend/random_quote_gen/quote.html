@@ -7,16 +7,16 @@
 </head>
 
 <body class="container-fluid custom-body">
-  <div class="centered">
+  <div id="centerBox" class="centered">
     <div>
-      <p><q>You know the golden rule, don't you boy? Those who have the gold make the rules.</q>
+      <p id="quotePara"><q>You know the golden rule, don't you boy? Those who have the gold make the rules.</q>
       </p>
       <small class="author"> Crazy hunch-backed old guy from the movie Aladdin.</small>
 
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <button id="newQuoteBtn" class="btn btn-default btn-lg">New Quote</button>
+        <button id="getNewQuoteBtn" class="btn btn-default btn-lg">New Quote</button>
       </div>
       <div class="col-xs-12 col-sm-6">
         <button id="twitterBtn" class="btn btn-default btn-sm"><i class="fa fa-twitter fa-3x"></i>
@@ -26,6 +26,7 @@
       </div>
     </div>
   </div>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="quote.js"></script>
 </body>
-
 </html>
