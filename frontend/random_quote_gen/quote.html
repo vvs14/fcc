@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="quote.css" rel="stylesheet">
+</head>
+
+<body class="container-fluid">
+  <div id="centerBox">
+    <div>
+      <p id="quotePara"><q>You know the golden rule, don't you boy? Those who have the gold make the rules.</q>
+      </p>
+      <small class="author">- Crazy hunch-backed old guy from the movie Aladdin</small>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <button id="getNewQuoteBtn" class="btn btn-default btn-lg">New Quote</button>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        
+        <!-- Below commented does not work in Firefox i.e. <a> inside <button> does not work.
+        <button class="btn btn-default btn-sm"><a id="twitterBtn" href ="https://twitter.com/intent/tweet?hashtags=quotes&text='You know the golden rule, don't you boy? Those who have the gold make the rules.' Crazy hunch-backed old guy from the movie Aladdin" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
+        </button>-->
+        <a id="twitterBtn" href ="https://twitter.com/intent/tweet?hashtags=quotes&text='You know the golden rule, don't you boy? Those who have the gold make the rules.' Crazy hunch-backed old guy from the movie Aladdin" target="_blank"><button title="Tweet" class="btn btn-default btn-sm"><i class="fa fa-twitter fa-3x"></i></button></a>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center">
+    <p>Coded while pulling hair out by <a href="https://www.freecodecamp.com/vvs14" class="link-text" target="_blank">Vivek</a></p>
+  </footer>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="quote.js"></script>
+</body>
+
+</html>
