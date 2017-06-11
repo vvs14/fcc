@@ -1,37 +1,45 @@
 body {
-  background-color: chocolate;
-  transition: background-color 1s ease;
+    background-color: chocolate;
+    transition: background-color 1s ease;
 }
-
 #centerBox {
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
-  background: chocolate;
-  color: #fff;
-  font-family: cursive;
-  font-size: 2.5vmax;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 3px 3px 53px 18px rgba(0,0,0,0.75);
-  display: inline-block; /*For the content to be inside of Div*/
-  border-radius: 20px;
-  transition: background-color 1.5s ease;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    background: chocolate;
+    color: #fff;
+    font-family: cursive;
+    font-size: 2.5vmax;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 3px 3px 53px 18px rgba(0, 0, 0, 0.75);
+    display: inline-block;
+    /*For the content to be inside of Div*/
+    
+    border-radius: 20px;
+    transition: background-color 1.5s ease;
 }
-
 .author {
-  font-family: serif;
+    font-family: serif;
 }
-
-#getNewQuoteBtn, #twitterBtn, #fbBtn {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  color: #000;
-  background-color: #fff;
+#getNewQuoteBtn,
+#twitterBtn,
+#fbBtn {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #000;
+    background-color: #fff;
 }
-
-
-
-
-
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    color: #000;
+}
+.link-text {
+    color: #fff;
+}
