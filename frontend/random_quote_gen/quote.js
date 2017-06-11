@@ -14,9 +14,16 @@ function getBackgroundColor() {
  */
 function changeView(responseData, backgroundColor) {
     $("#quotePara").html("<q>" + responseData.quote + "</q>");
-    $(".author").text("-" + responseData.author);
+    $(".author").text("- " + responseData.author);
     $("#centerBox").css("background-color", backgroundColor);
     $("body").css("background-color", backgroundColor);
+}
+
+function setTweetText(responseData) {
+  var newHref = "https://twitter.com/intent/tweet?hashtags=quotes&text=\'"+responseData.quote+"\' "+responseData.author;
+  document.getElementById("twitterBtn").setAttribute("href", newHref);
+  //console.log(newHref);
+  console.log(document.getElementById("twitterBtn").getAttribute("href"));
 }
 
 /**
@@ -40,14 +47,13 @@ $(document).ready(function() {
             success: function(responseData) {
                 var backgroundColor = getBackgroundColor();
                 changeView(responseData, backgroundColor);
-                console.log(responseData.author);
-                console.log(backgroundColor);
+                setTweetText(responseData);
+                //console.log(responseData.author + " "+ backgroundColor);
             },
             error: function(req, err) {
                 console.log('Some error occured here ' + err);
             }
         });
     });
-
 
 });

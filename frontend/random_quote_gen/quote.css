@@ -23,9 +23,7 @@ body {
 .author {
     font-family: serif;
 }
-#getNewQuoteBtn,
-#twitterBtn,
-#fbBtn {
+.btn {
     margin-top: 15px;
     margin-bottom: 10px;
     color: #000;

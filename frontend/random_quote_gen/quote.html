@@ -11,18 +11,18 @@
     <div>
       <p id="quotePara"><q>You know the golden rule, don't you boy? Those who have the gold make the rules.</q>
       </p>
-      <small class="author">-Crazy hunch-backed old guy from the movie Aladdin</small>
-
+      <small class="author">- Crazy hunch-backed old guy from the movie Aladdin</small>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <button id="getNewQuoteBtn" class="btn btn-default btn-lg">New Quote</button>
       </div>
       <div class="col-xs-12 col-sm-6">
-        <button id="twitterBtn" class="btn btn-default btn-sm"><i class="fa fa-twitter fa-3x"></i>
-        </button>
-        <button id="fbBtn" class="btn btn-default btn-sm"><i class="fa fa-facebook fa-3x"></i>
-        </button>
+        
+        <!-- Below commented does not work in Firefox i.e. <a> inside <button> does not work.
+        <button class="btn btn-default btn-sm"><a id="twitterBtn" href ="https://twitter.com/intent/tweet?hashtags=quotes&text='You know the golden rule, don't you boy? Those who have the gold make the rules.' Crazy hunch-backed old guy from the movie Aladdin" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
+        </button>-->
+        <a id="twitterBtn" href ="https://twitter.com/intent/tweet?hashtags=quotes&text='You know the golden rule, don't you boy? Those who have the gold make the rules.' Crazy hunch-backed old guy from the movie Aladdin" target="_blank"><button title="Tweet" class="btn btn-default btn-sm"><i class="fa fa-twitter fa-3x"></i></button></a>
       </div>
     </div>
   </div>
