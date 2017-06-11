@@ -19,41 +19,45 @@ function changeView(responseData, backgroundColor) {
     $("body").css("background-color", backgroundColor);
 }
 
+/**
+* Function to set text of tweet in href
+* @param {ajaxResponse} responseData
+*/
 function setTweetText(responseData) {
-  var newHref = "https://twitter.com/intent/tweet?hashtags=quotes&text=\'"+responseData.quote+"\' "+responseData.author;
-  document.getElementById("twitterBtn").setAttribute("href", newHref);
-  //console.log(newHref);
-  console.log(document.getElementById("twitterBtn").getAttribute("href"));
+    var newHref = "https://twitter.com/intent/tweet?hashtags=quotes&text=\'" + responseData.quote + "\' " + responseData.author;
+    document.getElementById("twitterBtn").setAttribute("href", newHref);
+    //console.log(newHref);
+    console.log(document.getElementById("twitterBtn").getAttribute("href"));
 }
+
 
 /**
  * Function to change view when newQuoteBtn is clicked.
  */
 $(document).ready(function() {
-    /**
-     * Function to get new random quote from random quote API.
-     */
     $("#getNewQuoteBtn").click(function() {
-        var request = new XMLHttpRequest();
-        $.ajax({
-            beforeSend: function(request) {
-                request.setRequestHeader("X-Mashape-Key", "4NdvxRO66gmshRekE7U8D6WOrfdQp1QjawIjsn4U3iclF7Vnmy");
-                request.setRequestHeader("Accept", "application/json");
+      
+        var ajaxCall = $.ajax({
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("X-Mashape-Key", "4NdvxRO66gmshRekE7U8D6WOrfdQp1QjawIjsn4U3iclF7Vnmy");
+                xhr.setRequestHeader("Accept", "application/json");
             },
             type: "GET",
             url: "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=1",
             processData: true,
-            dataType: "json",
-            success: function(responseData) {
-                var backgroundColor = getBackgroundColor();
-                changeView(responseData, backgroundColor);
-                setTweetText(responseData);
-                //console.log(responseData.author + " "+ backgroundColor);
-            },
-            error: function(req, err) {
-                console.log('Some error occured here ' + err);
-            }
+            dataType: "json"
+        });
+
+        ajaxCall.done(function(responseData) {
+            var backgroundColor = getBackgroundColor();
+            changeView(responseData, backgroundColor);
+            setTweetText(responseData);
+            //console.log(responseData.author + " "+ backgroundColor);
+        });
+
+        ajaxCall.fail(function(jqXHR, textStatus, errorThrown) {
+            // If fail
+            console.log(textStatus + ': ' + errorThrown);
         });
     });
-
 });
