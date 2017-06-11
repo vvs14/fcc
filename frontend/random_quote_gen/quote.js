@@ -1,7 +1,12 @@
+function getBackgroundColor() {
+  var boxColors = ["Blue","Brown","BurlyWood","CadetBlue","Chocolate","Coral","CornflowerBlue","Crimson","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkOliveGreen","Darkorange","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkViolet","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","ForestGreen","GoldenRod","Gray","Grey","Green","IndianRed","Indigo","LightCoral","LightSalmon","LightSeaGreen","LightSkyBlue","LightSteelBlue","Maroon","MediumSeaGreen","MediumSlateBlue","MediumTurquoise","MediumVioletRed","MidnightBlue","Navy","Olive","OliveDrab","Orange","PaleVioletRed","Peru","Plum","PowderBlue","Purple","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","Sienna","SkyBlue","SlateBlue","SlateGray","SlateGrey","SteelBlue","Tan","Teal","Tomato","Turquoise","Violet"];
+  return boxColors[Math.floor(Math.random() * boxColors.length)];
+}
+
 $(document).ready( function() {
+  //To get new random quote from random quote API.
   $("#getNewQuoteBtn").click( function() {
     var request = new XMLHttpRequest();
-    var boxColors = ["Blue","Brown","BurlyWood","CadetBlue","Chocolate","Coral","CornflowerBlue","Crimson","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkOliveGreen","Darkorange","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkViolet","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","ForestGreen","GoldenRod","Gray","Grey","Green","IndianRed","Indigo","LightCoral","LightSalmon","LightSeaGreen","LightSkyBlue","LightSteelBlue","Maroon","MediumSeaGreen","MediumSlateBlue","MediumTurquoise","MediumVioletRed","MidnightBlue","Navy","Olive","OliveDrab","Orange","PaleVioletRed","Peru","Plum","PowderBlue","Purple","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","Sienna","SkyBlue","SlateBlue","SlateGray","SlateGrey","SteelBlue","Tan","Teal","Tomato","Turquoise","Violet"];
     $.ajax( {
       beforeSend: function(request) {
         request.setRequestHeader("X-Mashape-Key","4NdvxRO66gmshRekE7U8D6WOrfdQp1QjawIjsn4U3iclF7Vnmy");
@@ -14,13 +19,13 @@ $(document).ready( function() {
       success: function(responseData){
         /*console.log(responseData);
         console.log(responseData.author);*/
-        var boxColor = boxColors[Math.floor(Math.random() * boxColors.length)];
+        var backgroundColor = getBackgroundColor();
         $("#quotePara").html("<q>" + responseData.quote+ "</q>");
         $(".author").text("-"+responseData.author);
         /*$("#centerBox").css("background-color", boxColor).fadeIn(1000);*/
-        $("#centerBox").css("background-color", boxColor);
-        $("body").css("background-color", boxColor);
-        console.log(boxColor);
+        $("#centerBox").css("background-color", backgroundColor);
+        $("body").css("background-color", backgroundColor);
+        console.log(backgroundColor);
       },
       error: function(req, err){ console.log('Some error occured here ' + err); }
     });

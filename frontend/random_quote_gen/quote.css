@@ -1,9 +1,9 @@
-.custom-body {
+body {
   background-color: chocolate;
   transition: background-color 1s ease;
 }
 
-.centered {
+#centerBox {
   position: absolute;
   left: 50%;
   top: 45%;
@@ -12,13 +12,12 @@
   color: #fff;
   font-family: cursive;
   font-size: 2.5vmax;
-  padding: 15px;
+  padding: 20px;
   text-align: center;
   box-shadow: 3px 3px 53px 18px rgba(0,0,0,0.75);
   display: inline-block; /*For the content to be inside of Div*/
-  border-radius: 25px;
+  border-radius: 20px;
   transition: background-color 1.5s ease;
-  opacity: 1 !important;
 }
 
 .author {
@@ -28,21 +27,9 @@
 #getNewQuoteBtn, #twitterBtn, #fbBtn {
   margin-top: 15px;
   margin-bottom: 10px;
-  /*background-color:#B5B3B4;*/
   color: #000;
   background-color: #fff;
 }
-
-/*
-Few other colors for background of box
-#930300
-#B0990A
-#0390AD
-#333640
-#2B303A
-
-For buttons
-#B5B3B4 background
 
 
 
