@@ -4,32 +4,45 @@ http://bdavidxyz.com/blog/how-to-name-css-classes/
 https://en.bem.info/methodology/
 */
 
+body {
+  background-image: url("../img/Trees_1920x1234.png")
+}
+
 .wrapper {
-  background: #eee;
-  margin: 10% auto;
-  padding: 10px;
+/*  background: #fff;*/
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  height: 70%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  text-align: center;
 }
 
 .weather-box {
-  float: left;
   background: #000;
   color: #fff;
-  padding: 2%;
-  margin: 1%;
-  border-radius: 20px;
-}
-
-.wrapper:after {
-  display: block;
-  content: "";
-  clear: both;
-}
-
-
-.temperature {
-  background: green;
-  color: white;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  padding: 5%;
   display: inline-block;
   border-radius: 20px;
+  opacity: 0.75;
 }
 
+
+.paragraphify {
+/*  font-size: 3vmax;*/
+  font-size: 150%;
+  font-family: sans-serif;
+}
+
+.headerify {
+/*  font-size: 3.5vmax;*/
+  font-size: 250%;
+  font-family: serif;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: aqua;
+}
