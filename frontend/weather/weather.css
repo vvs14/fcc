@@ -21,27 +21,32 @@ body {
 }
 
 .weather-box {
-  background: #6da5ff;
+  background: #f46241;
   color: #000;
   margin: 15%;
   padding: 2%;
   display: inline-block;
   border-radius: 10px;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
-
 .paragraphify {
-  font-family: sans-serif;
+  font-family: cursive;
+  font-weight: bolder;
 }
 
 .headerify {
   font-family: serif;
+  font-style: italic;
+  color: #fff;
 }
 
+body{
+  background-image: url('../img/clear-day.jpg');
+}
 @media all and (min-width: 960px) {
     .paragraphify{
-        font-size: 20px;
+        font-size: 25px;
     }
   .headerify {
     font-size: 30px;
@@ -50,7 +55,7 @@ body {
  
 @media all and (max-width: 959px) and (min-width: 600px) {
     .paragraphify{
-        font-size: 18px;
+        font-size: 23px;
     }
   .headerify {
     font-size: 28px;
@@ -59,10 +64,9 @@ body {
  
 @media all and (max-width: 599px) and (min-width: 320px) {
   .paragraphify{
-        font-size: 16px;
+        font-size: 21px;
     }
   .headerify {
     font-size: 26px;
   }
- 
 }

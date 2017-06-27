@@ -1,5 +1,16 @@
 var lat, lon, userLocation;
 
+function setBackgroundAndText(icon) {
+  if (icon === "partly-cloudy-day") {
+    icon = 'cloudy';
+  }
+  var img = "../img/" + icon + ".jpg";
+  var imgUrl = 'url(' + img + ')';
+  var bg = imgUrl + " no-repeat " + "center center fixed";
+  document.body.style.background = bg;
+  document.body.style.backgroundSize = "cover";
+}
+
 /**
  * Function to get location of user
  */
@@ -9,8 +20,6 @@ function getLocation() {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       console.log('Geolocation supported.');
-      //      console.log(lat);
-      //      console.log(lon);
     })
   } else {
     console.log('HTML5 Geolocation is not supported in this browser.');
@@ -36,7 +45,7 @@ function getLocation() {
 /**
  * Funtion to convert lattitude and longitude to human readable location
  */
-function reverseGeocoding() {
+function reverseGeocodingAjax() {
   var getReadableLocation = $.ajax({
     beforeSend: function(xhr) {
       xhr.setRequestHeader('Accept', 'application/json');
@@ -53,24 +62,24 @@ function reverseGeocoding() {
   });
 }
 
-function makeAjaxCall() {
-    var getWeather = $.ajax({
-      beforeSend: function(xhr) {
-        xhr.setRequestHeader('Accept', 'application/json');
-      },
-      type: 'GET',
-      url: 'https://crossorigin.me/https://api.darksky.net/forecast/48774be7d0c487b65dca6d2947c57c2b/' + lat + ',' + lon,
-      dataType: 'json'
-    });
+function getWeatherAjax() {
+  var getWeather = $.ajax({
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Accept', 'application/json');
+    },
+    type: 'GET',
+    url: 'https://crossorigin.me/https://api.darksky.net/forecast/48774be7d0c487b65dca6d2947c57c2b/' + lat + ',' + lon,
+    dataType: 'json'
+  });
 
-    getWeather.done(function(response) {
-      console.log(response);
-      document.getElementById('humidity').innerHTML = response.currently.humidity;
-      document.getElementById('temperature').innerHTML = response.currently.temperature + '&deg;F ' + response.currently.summary;
-      document.getElementById('wind').innerHTML = response.currently.windSpeed + ' miles/h';
-    });
-  }
-
+  getWeather.done(function(response) {
+    console.log(response);
+    document.getElementById('humidity').innerHTML = response.currently.humidity;
+    document.getElementById('temperature').innerHTML = response.currently.temperature + '&deg;F';
+    document.getElementById('wind').innerHTML = response.currently.windSpeed + ' miles/h';
+    setBackgroundAndText(response.currently.icon);
+  });
+}
 
 /**
  * Function to change view when page is refreshed/loaded.
@@ -78,7 +87,7 @@ function makeAjaxCall() {
 $(document).ready(function() {
 
   getLocation();
-  setTimeout(reverseGeocoding, 2000);
-  setTimeout(makeAjaxCall, 1500);
-  $('#refreshBtn').click(makeAjaxCall);
+  setTimeout(reverseGeocodingAjax, 2000);
+  setTimeout(getWeatherAjax, 1500);
+  $('#refreshBtn').click(getWeatherAjax);
 });
