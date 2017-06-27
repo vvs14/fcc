@@ -1,6 +1,7 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width">
   <link href='../bower_components/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='../bower_components/font-awesome/css/font-awesome.min.css' rel='stylesheet'>
   <link href='weather.css' rel='stylesheet'>
@@ -8,37 +9,40 @@
 
 <body>
   <div class='container'>
-  <div class='wrapper'>
-    <div class='row'>
-      <div class='col-xs-12 col-sm-4 col-sm-offset-4'>
-        <div class='weather-box'>
-          <h1 class='text-center headerify'>Temperature</h1>
-          <p class='text-center paragraphify' id='temperature'>ABC&deg;C</p>
+    <div class='wrapper'>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-4 col-sm-offset-4'>
+          <div class='weather-box'>
+            <h1 class='text-center headerify'>Temperature</h1>
+            <p class='text-center paragraphify' id='temperature'>ABC&deg;C <canvas id="icon1" width="128" height="128"></canvas></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class='row'>
-      <div class='col-xs-6 col-sm-4'>
-        <div class='weather-box'>
-          <h1 class='text-center headerify'>Location</h1>
-          <p class='text-center paragraphify' id='location'>Bengaluru, India</p>
+      <div class='row'>
+        <div class='col-xs-6 col-sm-4'>
+          <div class='weather-box'>
+            <h1 class='text-center headerify'>Humidity</h1>
+            <p class='text-center paragraphify' id='humidity'>Humidity</p>
+          </div>
+        </div>
+        <div class='col-xs-6 col-sm-4'>
+          <div class='weather-box'>
+            <h1 class='text-center headerify'>Wind</h1>
+            <p class='text-center paragraphify' id='wind'>PQR miles/h</p>
+          </div>
+        </div>
+        <div class='col-xs-12 col-sm-4'>
+          <div class='weather-box'>
+            <h1 class='text-center headerify'>Location</h1>
+            <p class='text-center paragraphify' id='location'>Bengaluru, India</p>
+          </div>
         </div>
       </div>
-      <div class='col-xs-6 col-sm-4'>
-        <div class='weather-box'>
-          <h1 class='text-center headerify'>Humidity</h1>
-          <p class='text-center paragraphify' id='humidity'>Humidity</p>
-        </div>
-      </div>
-      <div class='col-xs-12 col-sm-4'>
-        <div class='weather-box'>
-          <h1 class='text-center headerify'>Wind</h1>
-          <p class='text-center paragraphify' id='wind'>PQR miles/h</p>
-        </div>
+      <div class='row'>
+        <button id="refreshBtn" type="button" class="btn btn-default btn-lg">Refresh Weather</button>
       </div>
     </div>
   </div>
-    </div>
   <script src='../bower_components/jquery/dist/jquery.min.js'></script>
   <script src='../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
   <script src='weather.js'></script>

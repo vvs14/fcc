@@ -9,8 +9,8 @@ function getLocation() {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
       console.log('Geolocation supported.');
-      console.log(lat);
-      console.log(lon);
+      //      console.log(lat);
+      //      console.log(lon);
     })
   } else {
     console.log('HTML5 Geolocation is not supported in this browser.');
@@ -36,7 +36,6 @@ function getLocation() {
 /**
  * Funtion to convert lattitude and longitude to human readable location
  */
-
 function reverseGeocoding() {
   var getReadableLocation = $.ajax({
     beforeSend: function(xhr) {
@@ -54,23 +53,7 @@ function reverseGeocoding() {
   });
 }
 
-/**
- * Function to set element text
- * @param {string} id of element
- */
-
-function setElementText(id, response) {
-    console.log(response);
-    /*document.getElementById(id)*/
-  }
-  /**
-   * Function to change view when page is refreshed/loaded.
-   */
-$(document).ready(function() {
-
-  getLocation();
-  setTimeout(reverseGeocoding, 1500);
-  setTimeout(function makeAjaxCall() {
+function makeAjaxCall() {
     var getWeather = $.ajax({
       beforeSend: function(xhr) {
         xhr.setRequestHeader('Accept', 'application/json');
@@ -81,12 +64,21 @@ $(document).ready(function() {
     });
 
     getWeather.done(function(response) {
+      console.log(response);
       document.getElementById('humidity').innerHTML = response.currently.humidity;
-      document.getElementById('temperature').innerHTML = response.currently.temperature+'&deg;F';
-      document.getElementById('wind').innerHTML = response.currently.windSpeed+ ' miles/h';
-//      console.log(response.currently.humidity);
-//      console.log(response.currently.temperature);
-//      console.log(response.currently.windSpeed);
+      document.getElementById('temperature').innerHTML = response.currently.temperature + '&deg;F ' + response.currently.summary;
+      document.getElementById('wind').innerHTML = response.currently.windSpeed + ' miles/h';
     });
-  }, 2000);
+  }
+
+
+/**
+ * Function to change view when page is refreshed/loaded.
+ */
+$(document).ready(function() {
+
+  getLocation();
+  setTimeout(reverseGeocoding, 2000);
+  setTimeout(makeAjaxCall, 1500);
+  $('#refreshBtn').click(makeAjaxCall);
 });
