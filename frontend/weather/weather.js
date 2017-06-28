@@ -1,4 +1,4 @@
-var lat, lon, userLocation;
+var lat, lon, userLocation, temperature, temperatureUnit = 'F';
 
 function setBackgroundAndText(icon) {
   if (icon === "partly-cloudy-day") {
@@ -11,6 +11,14 @@ function setBackgroundAndText(icon) {
   document.body.style.backgroundSize = "cover";
 }
 
+function changeUnit() {
+  console.log('change unit called.');
+  if (temperatureUnit=='F'){
+    temperature = (temperature-32)/1.8;
+    temperatureUnit = 'C';
+    document.getElementById('temperature').innerHTML = temperature +  '<a href="#"><span id="tempUnit">&deg;'+temperatureUnit +'</span></a>';
+  }
+}
 /**
  * Function to get location of user
  */
@@ -51,7 +59,7 @@ function reverseGeocodingAjax() {
       xhr.setRequestHeader('Accept', 'application/json');
     },
     type: 'GET',
-    url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
+    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon + '&sensor=true',
     dataType: 'json'
   });
 
@@ -68,14 +76,15 @@ function getWeatherAjax() {
       xhr.setRequestHeader('Accept', 'application/json');
     },
     type: 'GET',
-    url: 'https://crossorigin.me/https://api.darksky.net/forecast/48774be7d0c487b65dca6d2947c57c2b/' + lat + ',' + lon,
+    url: 'https://crossorigin.me/https://api.darksky.net/forecast/48774be7d0c487b65dca6d2947c57c2b/' + lat + ',' + lon+'?exclude=minutely, hourly, daily,flags',
     dataType: 'json'
   });
 
   getWeather.done(function(response) {
     console.log(response);
+    temperature = response.currently.temperature;
     document.getElementById('humidity').innerHTML = response.currently.humidity;
-    document.getElementById('temperature').innerHTML = response.currently.temperature + '&deg;F';
+    document.getElementById('temperature').innerHTML = temperature +  '<a href="#"><span id="tempUnit">&deg;'+temperatureUnit +'</span></a>';
     document.getElementById('wind').innerHTML = response.currently.windSpeed + ' miles/h';
     setBackgroundAndText(response.currently.icon);
   });
@@ -87,7 +96,18 @@ function getWeatherAjax() {
 $(document).ready(function() {
 
   getLocation();
-  setTimeout(reverseGeocodingAjax, 2000);
-  setTimeout(getWeatherAjax, 1500);
+  var locInterval = setInterval(function weatherUpdate(){
+    if( typeof lat != 'undefined' && typeof lon != 'undefined')
+    {
+      reverseGeocodingAjax();
+      getWeatherAjax();
+      clearInterval(locInterval);
+    }
+  }, 300);
   $('#refreshBtn').click(getWeatherAjax);
+  $("#tempUnit").click(function(e){
+    e.preventDefault();
+    changeUnit();
+    console.log('anchor clicked.');
+  });
 });

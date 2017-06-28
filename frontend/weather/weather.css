@@ -4,12 +4,7 @@ http://bdavidxyz.com/blog/how-to-name-css-classes/
 https://en.bem.info/methodology/
 */
 
-body {
-  background-image: url("../img/Trees_1920x1234.png")
-}
-
 .wrapper {
-/*  background: #fff;*/
   position: absolute;
   top: 40%;
   left: 50%;
@@ -26,7 +21,7 @@ body {
   margin: 15%;
   padding: 2%;
   display: inline-block;
-  border-radius: 10px;
+  border-radius: 5px;
   opacity: 0.75;
 }
 
