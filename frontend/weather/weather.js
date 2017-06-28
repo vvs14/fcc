@@ -12,16 +12,19 @@ function setBackgroundAndText(icon) {
 }
 
 function changeUnit() {
-  console.log('change unit called.');
-  if (temperatureUnit=='F'){
-    temperature = (temperature-32)/1.8;
-    temperatureUnit = 'C';
-    document.getElementById('temperature').innerHTML = temperature +  '<a href="#"><span id="tempUnit">&deg;'+temperatureUnit +'</span></a>';
+    if (temperatureUnit == 'F') {
+      temperature = ((temperature - 32) / 1.8).toFixed(2);
+      temperatureUnit = 'C';
+
+    } else {
+      temperature = (temperature * 1.8 + 32).toFixed(2);
+      temperatureUnit = 'F';
+    }
+    document.getElementById('temperature').innerHTML = temperature + '<a id="tempUnit" href="#">&deg;' + temperatureUnit + '</a>';
   }
-}
-/**
- * Function to get location of user
- */
+  /**
+   * Function to get location of user
+   */
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -76,7 +79,7 @@ function getWeatherAjax() {
       xhr.setRequestHeader('Accept', 'application/json');
     },
     type: 'GET',
-    url: 'https://crossorigin.me/https://api.darksky.net/forecast/48774be7d0c487b65dca6d2947c57c2b/' + lat + ',' + lon+'?exclude=minutely, hourly, daily,flags',
+    url: 'https://crossorigin.me/https://api.darksky.net/forecast/48774be7d0c487b65dca6d2947c57c2b/' + lat + ',' + lon + '?exclude=minutely, hourly, daily,flags',
     dataType: 'json'
   });
 
@@ -84,7 +87,7 @@ function getWeatherAjax() {
     console.log(response);
     temperature = response.currently.temperature;
     document.getElementById('humidity').innerHTML = response.currently.humidity;
-    document.getElementById('temperature').innerHTML = temperature +  '<a href="#"><span id="tempUnit">&deg;'+temperatureUnit +'</span></a>';
+    document.getElementById('temperature').innerHTML = temperature + '<a id="tempUnit" href="#">&deg;' + temperatureUnit + '</a>';
     document.getElementById('wind').innerHTML = response.currently.windSpeed + ' miles/h';
     setBackgroundAndText(response.currently.icon);
   });
@@ -96,17 +99,15 @@ function getWeatherAjax() {
 $(document).ready(function() {
 
   getLocation();
-  var locInterval = setInterval(function weatherUpdate(){
-    if( typeof lat != 'undefined' && typeof lon != 'undefined')
-    {
+  var locInterval = setInterval(function weatherUpdate() {
+    if (typeof lat != 'undefined' && typeof lon != 'undefined') {
       reverseGeocodingAjax();
       getWeatherAjax();
       clearInterval(locInterval);
     }
   }, 300);
   $('#refreshBtn').click(getWeatherAjax);
-  $("#tempUnit").click(function(e){
-    e.preventDefault();
+  $(document).on('click', 'a[id="tempUnit"]', function(e) {
     changeUnit();
     console.log('anchor clicked.');
   });
