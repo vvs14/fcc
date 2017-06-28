@@ -92,7 +92,7 @@ function getWeatherAjax() {
   getWeather.done(function(response) {
     console.log(response);
     temperature = response.currently.temperature;
-    document.getElementById('humidity').innerHTML = response.currently.humidity;
+    document.getElementById('humidity').innerHTML = response.currently.humidity*100+'%';
     document.getElementById('temperature').innerHTML = temperature + '<a id="tempUnit" href="#">&deg;' + temperatureUnit + '</a>';
     document.getElementById('wind').innerHTML = response.currently.windSpeed + ' miles/h';
     setBackgroundAndText(response.currently.icon);
