@@ -1,4 +1,6 @@
-var lat, lon, userLocation, temperature, temperatureUnit = 'F';
+var lat, lon, userLocation;
+var temperature, temperatureUnit = 'F';
+var speed, speedUnit='miles';
 
 function setBackgroundAndText(icon) {
   if (icon === "partly-cloudy-day") {
@@ -17,7 +19,7 @@ function resetElements(){
   document.getElementById('wind').innerHTML = '---';
 }
 
-function changeUnit() {
+function toggleTempUnit() {
     if (temperatureUnit == 'F') {
       temperature = ((temperature - 32) / 1.8).toFixed(2);
       temperatureUnit = 'C';
@@ -27,7 +29,19 @@ function changeUnit() {
       temperatureUnit = 'F';
     }
     document.getElementById('temperature').innerHTML = temperature + '<a id="tempUnit" href="#">&deg;' + temperatureUnit + '</a>';
-  }
+}
+
+function toggleSpeedUnit() {
+    if (speedUnit == 'miles') {
+      speed = (speed* 1.6).toFixed(2);
+      speedUnit = 'km';
+
+    } else {
+      speed = (speed* 0.6).toFixed(2);
+      speedUnit = 'miles';
+    }
+    document.getElementById('wind').innerHTML = speed +' <a id="speedUnit" href="#"> '+ speedUnit + '/h</a>';
+}
   /**
    * Function to get location of user
    */
@@ -92,9 +106,12 @@ function getWeatherAjax() {
   getWeather.done(function(response) {
     console.log(response);
     temperature = response.currently.temperature;
+    temperatureUnit = 'F';
+    speedUnit = 'miles';
+    speed = response.currently.windSpeed;
     document.getElementById('humidity').innerHTML = response.currently.humidity*100+'%';
     document.getElementById('temperature').innerHTML = temperature + '<a id="tempUnit" href="#">&deg;' + temperatureUnit + '</a>';
-    document.getElementById('wind').innerHTML = response.currently.windSpeed + ' miles/h';
+    document.getElementById('wind').innerHTML = speed +' <a id="speedUnit" href="#"> '+ speedUnit + '/h</a>';
     setBackgroundAndText(response.currently.icon);
   });
 }
@@ -116,8 +133,12 @@ $(document).ready(function() {
     resetElements();
     getWeatherAjax();
   });
+  
   $(document).on('click', 'a[id="tempUnit"]', function() {
-    changeUnit();
-    console.log('anchor clicked.');
+    toggleTempUnit();
+  });
+  
+  $(document).on('click', 'a[id="speedUnit"]', function() {
+    toggleSpeedUnit();
   });
 });
