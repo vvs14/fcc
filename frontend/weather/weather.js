@@ -11,6 +11,12 @@ function setBackgroundAndText(icon) {
   document.body.style.backgroundSize = "cover";
 }
 
+function resetElements(){
+  document.getElementById('humidity').innerHTML = '---';
+  document.getElementById('temperature').innerHTML = '---';
+  document.getElementById('wind').innerHTML = '---';
+}
+
 function changeUnit() {
     if (temperatureUnit == 'F') {
       temperature = ((temperature - 32) / 1.8).toFixed(2);
@@ -106,8 +112,11 @@ $(document).ready(function() {
       clearInterval(locInterval);
     }
   }, 300);
-  $('#refreshBtn').click(getWeatherAjax);
-  $(document).on('click', 'a[id="tempUnit"]', function(e) {
+  $('#refreshBtn').click(function(){
+    resetElements();
+    getWeatherAjax();
+  });
+  $(document).on('click', 'a[id="tempUnit"]', function() {
     changeUnit();
     console.log('anchor clicked.');
   });
