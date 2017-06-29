@@ -3,11 +3,50 @@ var temperature, temperatureUnit = 'F';
 var speed, speedUnit='miles';
 
 function setBackgroundAndText(icon) {
-  if (icon === "partly-cloudy-day") {
-    icon = 'cloudy';
+//  if (icon === "partly-cloudy-day") {
+//    icon = 'cloudy';
+//  }
+//  var img = "../img/" + icon + ".jpg";
+  var imgUrl;
+  switch(icon){
+    case 'wind':
+      imgUrl = "url('https://preview.ibb.co/nkpdsk/wind_PKIMf_Q.jpg')";
+      break;
+    case 'sunny':
+      imgUrl = "url('https://preview.ibb.co/iSMPXk/sunny_Yk_UAiv.jpg')";
+      break;
+    case 'snow':
+      imgUrl = "url('https://preview.ibb.co/kAzpyQ/snow_g_Fk2ed.jpg')";
+      break;
+    case 'sleet':
+      imgUrl = "url('https://preview.ibb.co/d8vjXk/sleet_6_Vi7_Dn.jpg')";
+      break;
+    case 'rain':
+      imgUrl = "url('https://preview.ibb.co/dReYQ5/rain_fia_MIW.jpg')";
+      break;
+    case 'partly-cloudy-night':
+      imgUrl = "url('https://preview.ibb.co/iwZBCk/partly_cloudy_night.jpg')";
+      break;
+    case 'hot':
+      imgUrl = "url('https://preview.ibb.co/dhK8Q5/Webp_net_compress_image.jpg')";
+      break;
+    case 'fog':
+      imgUrl = "url('https://preview.ibb.co/kNUpyQ/fog_8_WKnpw.jpg')";
+      break;
+    case 'cold':
+      imgUrl = "url('https://preview.ibb.co/eUAjXk/cold_Ev_Il_SQ.jpg')";
+      break;
+    case 'cloudy':
+      imgUrl = "url('https://preview.ibb.co/ft5wdQ/cloudy_PC15qn.jpg')";
+      break;
+    case 'clear-night':
+      imgUrl = "url('https://preview.ibb.co/d0eNJQ/clear_night_9z_WCCN.jpg')";
+      break;
+    case 'clear-day':
+      imgUrl = "url('https://preview.ibb.co/czTGdQ/clear_day_g_Ti_Yf_G.jpg')";
+      break;
+    
   }
-  var img = "../img/" + icon + ".jpg";
-  var imgUrl = 'url(' + img + ')';
   var bg = imgUrl + " no-repeat " + "center center fixed";
   document.body.style.background = bg;
   document.body.style.backgroundSize = "cover";
@@ -87,7 +126,8 @@ function reverseGeocodingAjax() {
   });
 
   getReadableLocation.done(function(response) {
-    userLocation = response.results[5].formatted_address;
+    console.log(response);
+    userLocation = response.results[4].address_components[0].long_name;
     document.getElementById('location').innerHTML = userLocation;
     console.log(userLocation);
   });
