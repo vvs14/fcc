@@ -6,11 +6,10 @@ https://en.bem.info/methodology/
 
 .wrapper {
     position: absolute;
-    top: 48%;
-    left: 50%;
     height: 70%;
     width: 70%;
-    transform: translate(-50%, -50%);
+  margin-left: 10%;
+    
     display: inline-block;
     text-align: center;
 }
@@ -64,9 +63,17 @@ body {
     }
 }
 
-.main-header {
-  background: #000;
+
+.header-wrapper {
   color: #fff;
+  margin-bottom: 5%;
+  opacity: 1;
+}
+
+.header-div {
+  background: #989da5;
   opacity: 0.75;
-  display: inline-block;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 3px;
 }

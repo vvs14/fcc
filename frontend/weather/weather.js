@@ -3,10 +3,6 @@ var temperature, temperatureUnit = 'F';
 var speed, speedUnit='miles';
 
 function setBackgroundAndText(icon) {
-//  if (icon === "partly-cloudy-day") {
-//    icon = 'cloudy';
-//  }
-//  var img = "../img/" + icon + ".jpg";
   var imgUrl;
   switch(icon){
     case 'wind':
@@ -81,9 +77,9 @@ function toggleSpeedUnit() {
     }
     document.getElementById('wind').innerHTML = speed +' <a id="speedUnit" href="#"> '+ speedUnit + '/h</a>';
 }
-  /**
-   * Function to get location of user
-   */
+/**
+ * Function to get location of user
+ */
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -127,7 +123,7 @@ function reverseGeocodingAjax() {
 
   getReadableLocation.done(function(response) {
     console.log(response);
-    userLocation = response.results[4].address_components[0].long_name;
+    userLocation = response.results[5].formatted_address;
     document.getElementById('location').innerHTML = userLocation;
     console.log(userLocation);
   });
@@ -160,7 +156,6 @@ function getWeatherAjax() {
  * Function to change view when page is refreshed/loaded.
  */
 $(document).ready(function() {
-
   getLocation();
   var locInterval = setInterval(function weatherUpdate() {
     if (typeof lat != 'undefined' && typeof lon != 'undefined') {
