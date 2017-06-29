@@ -156,8 +156,8 @@ function getWeatherAjax() {
  * Function to change view when page is refreshed/loaded.
  */
 $(document).ready(function() {
-  getLocation();
   var locInterval = setInterval(function weatherUpdate() {
+    getLocation();
     if (typeof lat != 'undefined' && typeof lon != 'undefined') {
       reverseGeocodingAjax();
       getWeatherAjax();
